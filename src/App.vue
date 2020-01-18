@@ -10,7 +10,14 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
+$pokemon-green: #4ec0a6;
+$pokemon-red: #fb6e6d;
+$pokemon-blue: #58aaf2;
+$pokemon-yellow: #fece4a;
+$pokemon-purple: #7d548e;
+$pokemon-brown: #b3736e;
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

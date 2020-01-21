@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <b-container class="section1 border-bottom pb-5" fluid>
+    <b-container class="section1" fluid>
+      <Logo></Logo>
       <!-- TITLE -->
-
       <h1 class="font-weight-bold mb-5">What Pokemon are you looking for?</h1>
 
       <!-- SEARCHBAR -->
@@ -23,13 +23,13 @@
           <b-button
             class="w-100 py-4 font-weight-bold rounded-pill border-0 btn1"
             variant="success"
-            to="{name: about}"
+            :to="{ name: 'pokedex' }"
           >Pokedex</b-button>
         </b-col>
         <b-col class="mb-4" cols="12" md="6">
           <b-button
             class="w-100 py-4 font-weight-bold rounded-pill border-0 btn2"
-            to="{name: about}"
+            :to="{ name: 'pokedex' }"
           >Moves</b-button>
         </b-col>
       </b-row>
@@ -37,13 +37,13 @@
         <b-col class="mb-4" cols="12" md="6">
           <b-button
             class="w-100 py-4 font-weight-bold rounded-pill border-0 btn3"
-            to="{name: about}"
+            :to="{ name: 'pokedex' }"
           >Abilities</b-button>
         </b-col>
         <b-col class="mb-4" cols="12" md="6">
           <b-button
             class="w-100 py-4 font-weight-bold rounded-pill border-0 btn4"
-            to="{name: about}"
+            :to="{ name: 'pokedex' }"
           >Items</b-button>
         </b-col>
       </b-row>
@@ -51,13 +51,13 @@
         <b-col class="mb-4" cols="12" md="6">
           <b-button
             class="w-100 py-4 font-weight-bold rounded-pill border-0 btn5"
-            to="{name: about}"
+            :to="{ name: 'pokedex' }"
           >Locations</b-button>
         </b-col>
         <b-col class="mb-4" cols="12" md="6">
           <b-button
             class="w-100 py-4 font-weight-bold rounded-pill border-0 btn6"
-            to="{name: about}"
+            :to="{ name: 'pokedex' }"
           >Type Charts</b-button>
         </b-col>
       </b-row>
@@ -66,20 +66,18 @@
 </template>
 
 <script>
+import Logo from "../components/Logo.vue";
+
 export default {
   name: "home",
-  components: {}
+  components: {
+    Logo
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../scss/variables";
-
-div.home {
-  .section1 {
-    border-radius: 5em;
-  }
-}
 
 div.input-group {
   div.input-group-prepend {

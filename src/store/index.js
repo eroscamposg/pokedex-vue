@@ -1,29 +1,26 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
-import chunk from "chunk";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     AllPokemon: {},
-    Pokemon: {},
-    ChunkPokemon: [[]]
+    Pokemon: {}
   },
   getters: {
-    AllPokemon: state => state.AllPokemon,
-    ChunkPokemon: state => state.ChunkPokemon
+    AllPokemon: state => state.AllPokemon
   },
   mutations: {
     setPokemon: (state, pokemonData) => {
       state.AllPokemon = pokemonData;
-      state.ChunkPokemon = chunk(pokemonData.results);
-      console.log(state.ChunkPokemon);
+      //console.log(state.AllPokemon.results);
     }
   },
   actions: {
-    async getAllPokemon({ commit, url }) {
+    async getAllPokemon({ commit }, { url }) {
+      console.log("url:" + url);
       let poke_url = url == null ? "https://pokeapi.co/api/v2/pokemon" : url;
       let poke = await axios.get(poke_url);
       commit("setPokemon", poke.data);

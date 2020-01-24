@@ -6,15 +6,15 @@
     </b-container>
 
     <!-- CARDS -->
-    <b-row>
-      <b-col cols="6">
-        <b-card img-src="https://placekitten.com/300/300" img-alt="Card image" img-right>
-          <b-card-text>Some quick example text to build on the card and make up the bulk of the card's content.</b-card-text>
-        </b-card>
-      </b-col>
-      <b-col cols="6">
-        <b-card img-src="https://placekitten.com/300/300" img-alt="Card image" img-right>
-          <b-card-text>Some quick example text to build on the card and make up the bulk of the card's content.</b-card-text>
+    <b-row v-for="(pokemons, index) in ChunkPokemon" :key="index" class="mb-4">
+      <b-col cols="12" md="6" v-for="(pokemon, index) in pokemons" :key="index">
+        <b-card
+          class="pokeCard"
+          img-src="https://placekitten.com/300/300"
+          img-alt="Card image"
+          img-right
+        >
+          <b-card-text>{{ pokemon.name }}</b-card-text>
         </b-card>
       </b-col>
     </b-row>
@@ -23,11 +23,21 @@
 
 <script>
 import Logo from "../components/Logo.vue";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "pokedex",
   components: {
     Logo
+  },
+  computed: {
+    ...mapGetters(["AllPokemon", "ChunkPokemon"])
+  },
+  methods: {
+    ...mapActions(["getAllPokemon"])
+  },
+  created() {
+    this.getAllPokemon();
   }
 };
 </script>
